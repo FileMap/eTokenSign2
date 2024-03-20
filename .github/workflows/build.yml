@@ -1,0 +1,41 @@
+name: Build EXE
+
+on:
+  push:
+    branches: [ master ]  # Adjust this as necessary
+  pull_request:
+    branches: [ master ]  # Adjust this as necessary
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install Windows 10 SDK
+      uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+      with:
+        sdk-version: 17763
+
+    - name: Set up MSBuild path
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Build eTokenSign3 Solution
+      run: msbuild eTokenSign3.sln /p:Configuration=Release /p:Platform="x86"
+
+    - name: Determine Next Version and Tag
+      id: versioning
+      uses: mathieudutour/github-tag-action@v5.6
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        create_annotated_tag: true
+        tag_prefix: v
+
+    - name: 🚀 Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.versioning.outputs.new_tag }}
+        body: ${{ steps.versioning.outputs.changelog }}
+        files: |
+            **/*.exe
+            **/*.dll
