@@ -20,8 +20,8 @@ jobs:
     - name: Set up MSBuild path
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Build eTokenSign3 Solution
-      run: msbuild eTokenSign3.sln /p:Configuration=Release /p:Platform="x86"
+    - name: Build eTokenSign2 Solution
+      run: msbuild eTokenSign2.sln /p:Configuration=Release /p:Platform="x86"
 
     - name: Determine Next Version and Tag
       id: versioning
