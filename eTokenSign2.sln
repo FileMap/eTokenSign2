@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1169
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "eTokenSign3", "eTokenSign3.vcxproj", "{37DB9351-7658-49F7-83F4-29A4EF161C13}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "eTokenSign2", "eTokenSign2.vcxproj", "{37DB9351-7658-49F7-83F4-29A4EF161C13}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
