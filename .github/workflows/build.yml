@@ -2,9 +2,9 @@ name: Build EXE
 
 on:
   push:
-    branches: [ master ]  # Adjust this as necessary
+    branches: [ main ]
   pull_request:
-    branches: [ master ]  # Adjust this as necessary
+    branches: [ main ]
 
 jobs:
   build:
